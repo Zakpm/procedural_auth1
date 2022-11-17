@@ -10,7 +10,9 @@ declare(strict_types=1);
  */
 
 //   Chargement du noyau 
-require __DIR__ . "/../src/kernel.php";
+// Récupération de la réponse associée à la requête du client 
+// Affichage de cette réponse au client 
+echo require __DIR__ . "/../src/kernel.php";
 
 
 

@@ -1,21 +1,21 @@
 <?php 
 
-    function dd($data){
+    // function dd($data){
 
-        echo "<pre>";
-        var_dump($data);
-        echo "</pre>";
+    //     echo "<pre>";
+    //     var_dump($data);
+    //     echo "</pre>";
 
-        die();
+    //     die();
 
-    }
+    // }
 
-    function dump($data){
+    // function dump($data){
         
-        echo "<pre>";
-        var_dump($data);
-        echo "</pre>";
-    }
+    //     echo "<pre>";
+    //     var_dump($data);
+    //     echo "</pre>";
+    // }
 
 
 ?>
