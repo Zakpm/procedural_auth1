@@ -1,0 +1,7 @@
+{
+    "name": "zakaryya/auth",
+    "require": {},
+    "autoload": {
+        "files": ["src/z/helpers.php"]
+    }
+}
