@@ -19,3 +19,5 @@
 
     - command c
     
+# installer le dossier vendor 
+    - composer install 

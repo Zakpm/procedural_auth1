@@ -33,4 +33,13 @@ const TEMPLATES            = ROOT . "templates/";
 /** Ce raccourci représente le controller abstrait */
 const ABSTRACT_CONTROLLER  = ROOT . "/src/z/abstractController/abstractController.php";
 
+
+/** Ce raccourci représente le validateur des données */
+ const VALIDATOR           = ROOT . "/src/z/validation/validator.php";
+
+
+ /** Ce raccourci représente la connexion à la base de données */
+ const DB                  = __DIR__ . "/database.php";
+
+
 ?>

@@ -1,8 +1,10 @@
 <?php 
 
-get("/", ["visitor/welcome/welcomeController", "index"]);
+get("/",             ["visitor/welcome/welcomeController", "index"]);
 
-get("/register", ["visitor/registration/registrationController", "register"] );
+/* ------------------------Registration---------------------- */
+get("/register",     ["visitor/registration/registrationController", "register"] );
+post("/register",    ["visitor/registration/registrationController", "register"] );
 
 
 ?>
