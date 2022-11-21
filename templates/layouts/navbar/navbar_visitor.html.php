@@ -7,13 +7,13 @@
          <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/">Accueil</a>
+                    <a class="nav-link <?= ($_SERVER['REQUEST_URI'] === '/') ? ' active' : ''; ?>" <?= ($_SERVER['REQUEST_URI'] === '/') ? 'aria-current="page"' : ''; ?> href="/">Accueil</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/login">Connexion</a>
+                    <a class="nav-link <?= ($_SERVER['REQUEST_URI'] === '/login') ? ' active' : ''; ?>"  <?= ($_SERVER['REQUEST_URI'] === '/login') ? 'aria-current="page"' : ''; ?> href="/login">Connexion</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/register">Inscription</a>
+                    <a class="nav-link <?= ($_SERVER['REQUEST_URI'] === '/register') ? ' active' : ''; ?>"  <?= ($_SERVER['REQUEST_URI'] === '/register') ? 'aria-current="page"' : ''; ?> href="/register">Inscription</a>
                 </li>
             </ul>
          </div>

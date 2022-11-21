@@ -6,6 +6,7 @@
 # Pour démarrer le serveur 
 
     - php -S localhost:8000 -d display_errors=1 -t public
+    - ou dans le serveur  : composer serve 
 
 # pour enregistrer dans GitHub
 
@@ -17,4 +18,4 @@
 # couper le serveur 
 
     - command c
-    - ou dans le serveur  : composer serve 
+    
