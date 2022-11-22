@@ -61,11 +61,19 @@ require ABSTRACT_CONTROLLER;
             );
 
             if ( count($errors) > 0){
-
-                return header("Location: " . $_SERVER['HTTP_REFERER']);
+                
+                $_SESSION['errors'] = $errors; // pour récuperer les erreurs quand on recharge la page 
+                $_SESSION['old']    = old_values($_POST);
+                return redirect_back(); // c'est la fonction qu'on a crée qui permet la rediraction 
             }
 
-            dd("cool");
+            // Appel du manager de la table User
+            require USER;
+
+            $post_clean = old_values($_POST);
+            createUser($post_clean);
+
+            return redirect_to_url("/login"); // on fait la même chose qu'avec redirect_back
         }
 
        return render("pages/visitor/registration/register.html.php");

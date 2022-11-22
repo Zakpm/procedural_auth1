@@ -82,6 +82,21 @@ function make_validation(array $data, array $all_rules, array $all_messages) : a
 }
 
 /**
+ * Cette fonction permet de récupérer les données provenant du formulaire qui ont été mis au propre.
+ *
+ * @return array
+ */
+function old_values(array $data) : array {
+
+    $data_clean = [];
+
+    $data_clean = xssProtection($data);
+
+    return $data_clean;
+
+}
+
+/**
  * Cette fonction vérifie si la valeur actuelle correspond
  * à la valeur de l'input dont on dont on souhaite effectuer la comparaison
  *

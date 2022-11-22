@@ -33,6 +33,20 @@ function extends_of($theme_name){
     return $theme_name;
 }
 
+/**
+ * Cette fonction vérifie si l'utilisateur est connecté ou non
+ *
+ * @return boolean
+ */
+function get_user() : bool {
+
+    if ( isset($_SESSION['auth']) && !empty($_SESSION['auth'])){
+
+        return true;
+    }
+    return false;
+}
+
 
 
 

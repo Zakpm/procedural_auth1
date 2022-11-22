@@ -21,3 +21,11 @@
     
 # installer le dossier vendor 
     - composer install 
+
+# cloner un lien github 
+
+    - on copie le lien 
+    - on va dans le terminal 
+    - on se met à la racine du dossier 
+    - git clone + le lien qu'on a copié
+    - installer le composer 
