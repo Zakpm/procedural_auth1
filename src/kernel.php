@@ -1,6 +1,7 @@
 <?php 
 declare(strict_types=1);
 
+session_set_cookie_params(['secure' => true, 'httponly' => true, 'samesite' => 'lax']);
 session_start();
 
 /**
@@ -17,6 +18,7 @@ session_start();
 
 //  Chargment des constantes
 require __DIR__ . "/../config/constants.php";
+
 
 
 //  Chargement de l'autoloader de composer

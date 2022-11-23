@@ -46,7 +46,7 @@ function login() : string {
         }
 
         require AUTHENTICATOR;
-        $response = authenticateUser(old_values($_POST));
+        $user = authenticateUser(old_values($_POST));
         
         if ($user === null){
             
@@ -55,12 +55,29 @@ function login() : string {
             return redirect_back();
         }
 
-        $_SESSION['auth'] = $response; // on stock les infos dans $_SESSION car elle a une durée de vie de 120min minumum et qu ec'est une variable super global
+        session_regenerate_id();
+
+        $_SESSION['auth'] = $user; // on stock les infos dans $_SESSION car elle a une durée de vie de 120min minumum et qu ec'est une variable super global
         
         return redirect_to_url("/");
     }
 
     return render("pages/visitor/authentication/login.html.php");
+}
+
+/**
+ * Cette fonction permet de déconnecter l'utilisateur
+ *
+ * @return string
+ */
+function logout() : string {
+
+    session_destroy();
+    unset($_SESSION);
+    $_SESSION = [];
+
+    return redirect_to_url("/login");
+
 }
 
 
