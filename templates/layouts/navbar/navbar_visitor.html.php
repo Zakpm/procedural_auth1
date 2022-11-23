@@ -11,14 +11,14 @@
                 </li>
                 <?php if(get_user()) :  ?>
                     <li class="nav-item">
+                        <a class="nav-link" href="/admin/home">Espace admin</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="/logout">Déconnexion</a>
                     </li>
                 <?php else : ?>
                     <li class="nav-item">
                         <a class="nav-link <?= ($_SERVER['REQUEST_URI'] === '/login') ? ' active' : ''; ?>"  <?= ($_SERVER['REQUEST_URI'] === '/login') ? 'aria-current="page"' : ''; ?> href="/login">Connexion</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link <?= ($_SERVER['REQUEST_URI'] === '/register') ? ' active' : ''; ?>"  <?= ($_SERVER['REQUEST_URI'] === '/register') ? 'aria-current="page"' : ''; ?> href="/register">Inscription</a>
                     </li>
                 <?php endif ?>
             </ul>

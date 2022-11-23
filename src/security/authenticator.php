@@ -13,7 +13,7 @@ function authenticateUser(array $data) : ?array {
     require DB;
 
     // Effectuer la requête pour récupérer les données de l'utilisateur dont l'emial a été récupérer depuis le formulaire
-    $req = $db -> prepare("SELECT * FROM user WHERE email=:email");
+    $req = $db -> prepare("SELECT * FROM admin WHERE email=:email");
     $req -> bindValue(":email", $data['email'] );
     $req -> execute();
     $row = $req -> rowCount();

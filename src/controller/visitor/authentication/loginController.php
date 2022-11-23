@@ -59,7 +59,7 @@ function login() : string {
 
         $_SESSION['auth'] = $user; // on stock les infos dans $_SESSION car elle a une durée de vie de 120min minumum et qu ec'est une variable super global
         
-        return redirect_to_url("/");
+        return redirect_to_url("/admin/home");
     }
 
     return render("pages/visitor/authentication/login.html.php");

@@ -47,10 +47,18 @@ const ABSTRACT_CONTROLLER  = ROOT . "/src/z/abstractController/abstractControlle
  
  
  /** Ce raccourci représente l'authentificateur */
- const AUTHENTICATOR  = ROOT . "/src/security/authenticator.php";
+ const AUTHENTICATOR      = ROOT . "/src/security/authenticator.php";
+ 
+ 
+ /** Ce raccourci représente l'intergiciel entre la requête et la réponse
+  * Il s'assure que la personne qui tente d'accéder à l'espace d'administration 
+  * en passant par la barre d'url soit connecté 
+  */
+ const AUTH_MIDDLEWARE    = ROOT . "/src/security/authMiddleware.php";
 
 
-
-
+  /** Ce raccourci représente le manager de la table "category" */
+  const CATEGORY               = ROOT . "/src/manager/category.php";
+ 
 
  ?>

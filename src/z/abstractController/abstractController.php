@@ -5,13 +5,14 @@
  * extraire et retourner le contenu 
  * 
  * @param [type] $view_name
- * 
+ * @param array $data
  * @return string
  */
 
-function render($view_name) : string {
+function render($view_name, array $data = []) : string {
 
     ob_start();
+    extract($data);
     require TEMPLATES . "$view_name";
     $content = ob_get_clean();
 

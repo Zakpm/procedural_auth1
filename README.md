@@ -29,3 +29,8 @@
     - on se met à la racine du dossier 
     - git clone + le lien qu'on a copié
     - installer le composer 
+
+# crer une nouvelle branche sur gihub
+
+    - git branch auth_admin
+    - git checkout auth_admin
