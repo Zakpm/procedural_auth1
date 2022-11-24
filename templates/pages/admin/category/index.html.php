@@ -16,6 +16,7 @@
     <a href="/admin/category/create" class="btn btn-primary">Nouvelle catégorie</a>
 </div>
 
+<?php if(isset($categories) && !empty($categories)) : ?>
 <div class="table-responsive">
     <table class="table table-striped table-hover table-bordered text-center">
         <thead class="bg-dark text-white">
@@ -26,19 +27,20 @@
             </tr>
         </thead>
         <tbody>
-            <?php if(isset($categories) && !empty($categories)) : ?>
                 <?php foreach($categories as $category) : ?>
                     <tr>
                         <td><?= htmlspecialchars($category['id']) ?></td>
                         <td><?= htmlspecialchars($category['name']) ?></td>
                         <td>
-                            <a href="" class="btn btn-sm btn-secondary">Modifier</a>
-                            <a href="" class="btn btn-sm btn-danger">Supprimer</a>
+                            <a href="/admin/category/edit/<?= htmlspecialchars($category['id']) ?>" class="btn btn-sm btn-secondary">Modifier</a>
+                            <a onclick="return confirm('Confirmer la suppression ?')" href="/admin/category/delete/<?= htmlspecialchars($category['id']) ?>" class="btn btn-sm btn-danger">Supprimer</a>
                         </td>
                     </tr>
                 <?php endforeach ?>
-            <?php endif ?>
-        </tbody>
-    </table>
+            </tbody>
+        </table>
 </div>
+    <?php else : ?>
+        <p class="mt-5 text-center lead">Aucune catégorie existante</p>
+<?php endif ?>
 

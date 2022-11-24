@@ -72,6 +72,12 @@ function make_validation(array $data, array $all_rules, array $all_messages) : a
 
                             $errors[$input_name][] = $message;
                         }
+                    } else if ( (substr($rule, 0, 14) === "uniqueOnUpdate") && ($key_message === "$input_name.uniqueOnUpdate") ){
+
+                        if ( uniqueOnUpdate_($data_clean[$input_name], $rule) ){
+
+                            $errors[$input_name][] = $message;
+                        }
                     } 
                 }
             }
@@ -79,6 +85,61 @@ function make_validation(array $data, array $all_rules, array $all_messages) : a
     }
 
     return $errors;
+}
+
+
+/**
+ * Cette fonction permet de procéder à la modification d'un enregistrement
+ * d'une table dont la colonne est unique.
+ * 
+ * L'astuce étant d'ignorer l'enregistrment lui même.
+ *
+ * @param string $value
+ * @param string $rule
+ * 
+ * @return boolean
+ */
+function uniqueOnUpdate_(string $value, string $rule) : bool {
+
+   $cut = strstr($rule, "::");
+   $cut = str_replace("::", "", $cut);
+   $tab = explode(",", $cut);
+
+   $table = $tab[0];
+   $column = $tab[1];
+   $id = $tab[2];
+
+   require DB;
+
+   // Récuperer tous les enregistrement de la table concernée
+   $req = $db -> prepare("SELECT * FROM {$table}");
+   $req -> execute();
+   $recordings = $req -> fetchAll();
+
+   // Parcourir tous laes enregistrments récupérés 
+   foreach ($recordings as $record){
+
+    // Si l'identifiant de l'enregistrement récupéré lors du tour de boucle
+    // n'est pas la même chose que l'identifiant de la catégorit dont 
+    // on souhaite effectuer la modification
+    if ($record ['id'] != $id){
+       
+        // Puisque php est sensible à la casse, les lettres majuscules et minuscules ne sont pas les mêmes 
+        // Convertir donc en minuscule avant de comparer 
+       $lower_record_column = strtolower($record[$column]);
+       $lower_value = strtolower($value);
+        // Si la valeur associée à la colonne de l'enregistrment récupéré de la base de données
+        // est égaler à la valeur envoyée par l'utilisateur depuis le formulaire 
+        if ($lower_record_column === $lower_value){
+
+            // Y a un problème 
+            return true;
+        }
+    }
+   }
+
+   // Tout va bien 
+   return false;
 }
 
 /**
